@@ -59,8 +59,8 @@ public class MaxWidthLinearLayout extends LinearLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int newSpecWidth = Math.min(MeasureSpec.getSize(widthMeasureSpec), mMaxWidth);
-        widthMeasureSpec = MeasureSpec.makeMeasureSpec(newSpecWidth, MeasureSpec.getMode(widthMeasureSpec));
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int threeTwo = MeasureSpec.getSize(widthMeasureSpec) * mMaxWidth;
+        int twoThree = MeasureSpec.makeMeasureSpec(threeTwo, MeasureSpec.EXACTLY);
+        super.onMeasure(widthMeasureSpec, twoThree);
     }
 }
