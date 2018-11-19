@@ -2,6 +2,7 @@ package com.example.xyzreader.remote;
 
 import android.util.Log;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -16,6 +17,11 @@ public class Config {
         } catch (MalformedURLException ignored) {
             // TODO: throw a real error
             Log.e(TAG, "Please check your internet connection.");
+            try {
+                throw new IOException();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         BASE_URL = url;

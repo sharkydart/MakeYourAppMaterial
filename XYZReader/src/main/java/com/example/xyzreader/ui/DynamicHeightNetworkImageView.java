@@ -27,8 +27,11 @@ public class DynamicHeightNetworkImageView extends NetworkImageView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int threeTwo = MeasureSpec.getSize(widthMeasureSpec) * (int)mAspectRatio;
-        int twoThree = MeasureSpec.makeMeasureSpec(threeTwo, MeasureSpec.EXACTLY);
-        super.onMeasure(widthMeasureSpec, twoThree);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int measuredWidth = getMeasuredWidth();
+        setMeasuredDimension(measuredWidth, (int)(measuredWidth / mAspectRatio));
+//        int threeTwo = MeasureSpec.getSize(widthMeasureSpec) * (int)mAspectRatio;
+//        int twoThree = MeasureSpec.makeMeasureSpec(threeTwo, MeasureSpec.EXACTLY);
+//        super.onMeasure(widthMeasureSpec, twoThree);
     }
 }
